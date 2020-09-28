@@ -1,3 +1,7 @@
+"""
+Send exactly the same pulses as written in the csv by finding the length of each pulse and turning on
+the ir led for that period of time.
+"""
 from typing import List
 
 import click
@@ -10,7 +14,6 @@ def convert_samples_to_signals(samples: List[Sample]) -> List[Signal]:
     signals = []
     for index in range(len(samples) - 1):
         length = samples[index + 1].timestamp - samples[index].timestamp
-        print(length)
         value = samples[index].value
         signals.append(Signal(length=length, value=value))
     signals.append(Signal(length=signals[-1].length, value=samples[-1].value))

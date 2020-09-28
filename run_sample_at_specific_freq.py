@@ -1,3 +1,7 @@
+"""
+Sample the csv file at a specific rate (for example pulses at 38Khz).
+Transform the sampled data to pulses at the specified rate.
+"""
 from itertools import groupby
 from typing import List
 import click
